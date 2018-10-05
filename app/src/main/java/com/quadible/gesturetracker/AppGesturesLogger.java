@@ -32,7 +32,9 @@ public class AppGesturesLogger {
 
         @Override
         public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
-            final GestureDetector detector = new GestureDetector(activity, new GestureListener());
+            String activityName = activity.getClass().getSimpleName();
+            final GestureDetector detector =
+                    new GestureDetector(activity, new GestureListener(activityName));
 
             activity.getWindow().getDecorView().setOnTouchListener(new View.OnTouchListener() {
                 @Override
